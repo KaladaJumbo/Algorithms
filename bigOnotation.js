@@ -33,3 +33,19 @@
         i++;
     } 
  }
+
+ //rule of thumb of big O
+ /* 
+    constants do not matter 
+        O(500) = O(1)
+        O(13n^2) = O(n^2)
+    small terms dont matter 
+        O(n^2+5n+8) = O(n^2)
+    arithmetic operations are constant and do not matter 
+    variable assignment is constant runtime as well 
+    accessing elements in an array or key in object is constant 
+    in a loop, the complexity is the length of the loop multiplied by what happens in it. 
+    
+ */
+
+ //space complexity
