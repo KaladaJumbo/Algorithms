@@ -1,0 +1,7 @@
+Arrays 
+
+-use when you need order 
+-when you need fast access and insertaion 
+-access is O(1)
+-searching O(n)
+-insertion/removal is constant for push and pop and O(n) for shift and unshift 
