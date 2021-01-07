@@ -15,3 +15,61 @@ problem solving strats
 4.solve/simplify 
 5.look back and refactor 
 
+#########################################
+
+understand the problem 
+
+can i restate the problem in my own words?
+what are the inputs the go into the problem
+what are the output that should come from the solutionto the proble 
+can the outputs be determained from the input.
+do i have enough information to solve the problem 
+how should i lable the inportant pieces of data that are a part of the problem 
+
+
+###############################################
+explore concrete examples
+
+come up with concrete examples 
+coming up with them help you understand the problem better 
+
+examples also provide sanity checks that you eventual solution works how it should 
+
+####################################################
+break it down 
+
+explicitly writing down the steps that you need to take 
+
+forces you to think about the code you will write before tou writ it, and 
+helps you catch any lingering conceptual issues or misunderstandings before you dive in and have to 
+worry about details.... 
+
+#####################################################
+solve/simplify 
+
+break down the solution into steps 
+
+find the core diffuculty in what you are trying to do 
+temp ignore that difficulty 
+write a simplified solution
+then incorporate that diff back in 
+
+
+regex can be simplified to :
+
+
+const isAlphaNumeric = (char) => {
+    let code = char.charCodeAt(0)
+    if(
+        (code > 47 && code < 58 ) &&
+        (code > 64 && code < 91 ) &&
+        (code > 97 && code < 122 ) &&
+        
+    ){
+
+        return true
+    }
+
+    return false
+
+}
