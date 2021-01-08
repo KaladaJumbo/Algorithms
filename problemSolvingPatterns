@@ -1,0 +1,101 @@
+some common patterens:
+
+Frequency counter 
+multiple pointers
+sliding window 
+divide and conquer
+cynamic programming 
+greedy algorithms
+backtracking
+....many more 
+
+#####################################
+Frequency counter 
+
+this pattern uses objects or sets to collect values/frequency of values 
+
+this can often avoid nested loops or O(n^2) opperations
+with arrays / strings 
+
+usually is O(n)
+
+Example 
+write a function called "same", which accepts two arrays.
+
+the function should reurn true if every value has its correspinding value squared in the second array.
+the frequency of values must be the same
+
+order does not matter 
+
+same([1,2,3], [4,1,9]) //true
+same([1,2,3], [1,9]) // false
+same([1,2,1], [4,4,1]) // false 
+
+const same = (arr, doubleArr) => {
+
+}
+
+i can find out if it is true by comparing to the answer
+
+
+[1,2,3] =>pure function [1,4,9]
+
+compare the length and the frequency 
+this makes sure that there is nothing more than what i have 
+
+
+const same = (arr, doubleArr) => {
+    const arrHash = {};
+    const doubleHash = {};
+
+    if (arr.length !== doubleArr.length){
+        return false;
+    }
+
+    arr = arr.map(char => char*char)
+
+    for(let i = 0; i < arr.length; i++){
+        if (arrHash[arr[i]]){
+            arrHash += 1;
+        }
+        else(
+            arrHash[arr[i]] = 1;
+        )
+
+        if (doubleHash[doubleArr[i]]){
+            doubleHash += 1;
+        }
+        else(
+            doubleHash[doubleArr[i]] = 1;
+        )
+    }
+
+    for (const key in arrHash){
+        if (arrHash[key] === doubleArr[key]){
+            return false;
+        }
+    }
+
+    return true
+}
+################################################
+multiple pointers 
+
+the obv and ineffecient answer would be to make two pointers and have 
+a nested loop ...
+
+if you need a multiple pointer for comparison:
+
+use a pointer at the other end of the array 
+
+if you need a first occurance of a value:
+
+move j if it is not different from i 
+
+if j is different 
+
+i++ 
+arr[i] = arr[j]
+j++
+
+.... you can use the arr as a storage for the numbers. 
