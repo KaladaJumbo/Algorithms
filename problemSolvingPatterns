@@ -99,3 +99,36 @@ arr[i] = arr[j]
 j++
 
 .... you can use the arr as a storage for the numbers. 
+
+###########################################################
+sliding window 
+
+you use a subarray in a bigger array and crawl the subarray throughout the big array to keep track of something. 
+
+example :
+
+function maxSubarraySum(arr, num){
+  // add whatever parameters you deem necessary - good luck!
+  
+  if (arr.length < num){
+      return null;
+  }
+  
+    let total = 0;
+    
+    for(let i = 0; i < num; i++){
+        total += arr[i];
+    }
+    
+    let currentTotal = total;
+    
+    for(let z = num; z < arr.length; z++){
+        currentTotal += arr[z] - arr[z-num];
+        
+        if (currentTotal > total){
+            total = currentTotal;
+        }
+    }
+    
+    return total; 
+}
