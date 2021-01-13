@@ -132,3 +132,132 @@ function maxSubarraySum(arr, num){
     
     return total; 
 }
+
+
+miniSubArrayLens
+
+function minSubArrayLen(nums, sum) {
+  let total = 0;
+  let start = 0;
+  let end = 0;
+  let minLen = Infinity;
+ 
+  while (start < nums.length) {
+    // if current window doesn't add up to the given sum then 
+		// move the window to right
+    if(total < sum && end < nums.length){
+      total += nums[end];
+			end++;
+    }
+    // if current window adds up to at least the sum given then
+		// we can shrink the window 
+    else if(total >= sum){
+      minLen = Math.min(minLen, end-start);
+			total -= nums[start];
+			start++;
+    } 
+    // current total less than required total but we reach the end, need this or else we'll be in an infinite loop 
+    else {
+      break;
+    }
+  }
+ 
+  return minLen === Infinity ? 0 : minLen;
+}
+
+#############################################################
+recursion 
+
+recursion is a function that works on an input and calls it self again till the input is at the smallest form. 
+it then returns the results of each input and derives at an answer. 
+
+eg, use recusion to find the answer of a factorial. 
+
+factorials are:
+
+4! => 4*3*2*1
+
+const recurFactorial = (num) => {
+    if(num === 1) return 1;
+    num * recurFactorial(num-1)
+}
+
+This function will take a number and check to see if it is equal to 1
+if not, it will try to multiply the number times the answer to the next call of the function 
+
+the function will end up looking like:
+
+(4 * (3 * (2 * (1)))
+
+each bracket is a function call. 
+
+pitfalls of recursion solutions
+
+
+no base case (there is nothing to stop the recursion)
+
+returning the wrong thing or forgetting to return something 
+    make sure there is always work happening on the function call. 
+    make sure to return something. there should be at least 2 returns in a recursion-- one in the if for the base case and one in the re-function call 
+
+both of these things will cause stack overflow.
+
+Helper method recursion 
+
+in a helper method recusion you will have a function and in the function you will have another function that calls itself. 
+
+
+const outer = (input) => {
+    let outerVariable = []
+
+    function helper(helperInput) {
+        bascase{return base}
+        helper (helperInput--)
+    }
+
+    helper(input)
+
+    return outerVariable
+}
+
+helper method recursion is mostly used when a collection is needed during recursion 
+
+
+pure recustion tips .. use slice spread or concat are used for collections
+
+remember to call the helper function!!!!
+
+
+function power(base, exponent) { 
+    if (exponent === 1) return base;
+
+    return base * power(base, exponent-1)
+}
+
+function flatten (oldArr){
+    let newArr = []
+
+    forloop (size of old arr){
+        if (Array.isArray(oldArray)){
+            newArr = newArr.concat(flatten(oldArr[i]))
+        }else{
+            newArr.push(oldArr[i])
+        }
+
+        return newArr;
+    }
+}
+
+function stringifyNumbers(obj){
+    
+    for (const key in obj){
+        if(typeof(obj[key]) === "object"){
+            obj[key] = stringifyNumbers(obj[key]);
+        }
+        else if (typeof(obj[key]) === "number"){
+            obj[key] += "";
+        }
+    }
+    
+    return obj;
+}
