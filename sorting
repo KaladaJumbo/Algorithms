@@ -1,0 +1,49 @@
+sorting - the process of taking items in a collection and rearranging them into a specific order 
+
+why do you need to learn this ?
+
+sorting is a very common task.
+
+bubble sort ... checks two numbers and if the first one is bigger then swap them 
+
+for(let i = arr.length-1; i > 0; i--){
+    let noSwaps = true;
+    for(let j = 0; j<i-1; j++){
+        if (arr[j] > arr[j+1]){
+            swap(arr, j, j+1);
+            noSwaps= false;
+        }
+        if (noswaps) break;
+    }
+}
+
+return arr 
+
+
+swap(arr, j, z){
+    [arr[j], arr[z]] = [arr[z], arr[j]]
+}
+
+#################################################################################
+
+selection sort - looks for the smallest value linearly and swaps it to the right place. 
+
+
+function sort(arr){
+
+    const swap (arr, i, z){
+        [arr[i], arr[z]] = [arr[z], arr[i]]
+    }
+
+    for (let i = 0; i < arr.length; i++){
+        let lowest = i
+        for (let z = i+1; z < arr.length; z++){
+            if (arr[lowest] > arr[z]) lowest = z
+        }
+        if (i !== lowest) swap(arr, i, lowest);
+    }
+}
+
+
+############################################################################
+insertion sort 

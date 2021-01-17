@@ -261,3 +261,31 @@ function stringifyNumbers(obj){
     
     return obj;
 }
+
+
+//searching for a substring in a string;
+//a better solution is the KNP algorithm
+
+function subsetSearch(str, subStr){
+    count = 0;
+
+    for (let z = 0; z < str.length; z++){
+        if (str[z] !== subStr[0]) continue;
+
+        let match = true;
+
+        for (let i = 1; i < subStr.length; i++){
+            if (subStr[i] !== str[z + i]) {
+                match = false;
+                break;
+            }
+        }
+
+        if (match){
+            count +=1;
+        }
+        
+    }
+
+    return count;
+}
