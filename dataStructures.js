@@ -319,3 +319,7 @@ class doublyLinkedList {
     }
 }
 
+//##############################################################
+//stacks is a collection of data that follows the rules last in first out. 
+
+
